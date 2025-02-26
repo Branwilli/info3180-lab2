@@ -1,6 +1,8 @@
 from app import app
+import datetime
 from flask import render_template, request, redirect, url_for, flash
 
+date = datetime.datetime.now()
 
 ###
 # Routing for your application.
@@ -15,12 +17,26 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Brandon Williams")
 
+@app.route("/profile")
+def profile():
+    """Render the website's profile page."""
+    return render_template("profile.html", joined=format_date_joined(date))
 
 ###
 # The functions below should be applicable to all Flask apps.
 ###
+
+
+def format_date_joined(date):
+    """Returns a formatted string verion of the inputted date."""
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]  
+    year= date.year # Assuming input format is "YYYY-MM-DD"
+    month = date.month
+    month_name = months[int(month) - 1]
+    date_str = f"Joined {month_name}, {year}"
+    return date_str
 
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):

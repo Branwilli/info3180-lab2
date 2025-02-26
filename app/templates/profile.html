@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="card">
+    <div class="headerInfo">
+
+        <div class="header">
+            <div class="avatar">
+                <img src="{{ url_for('static', filename='/images/Selfie.jpg') }}" alt='Anime.jpeg'>
+            </div>
+        </div>
+
+        <div class="info">
+            <h2>Brandon Williams</h2>
+            <p>@Branwilli</p>
+            <p>Kingston, Jamaica</p>
+            <p>{{ joined }}</p>
+            
+        </div>
+    </div>
+    <p>I am smart and talented young man who loves website design and development. Contact me if you'd like to work together on a new project.</p>
+    <div class="stats">
+        <div>
+            <strong>7</strong>
+            <p>Posts</p>
+        </div>
+        <div>
+            <strong>100</strong>
+            <p>Following</p>
+        </div>
+        <div>
+            <strong>250</strong>
+            <p>Followers</p>
+        </div>
+    </div>
+    <button class="follow-btn">Follow</button>
+</div>
+{% endblock %}
